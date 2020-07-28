@@ -1,0 +1,12 @@
+{
+  "printWidth": 120,
+  "jsxSingleQuote": true,
+  "useEditorConfig": false,
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true,
+  "endOfLine": "auto",
+  "arrowParens": "always",
+  "insertSpaceBeforeFunctionParenthesis": false
+}
