@@ -2,7 +2,23 @@
 
 render element table
 
+## Install
+
+```bash
+$ npm install render-table -S
+```
+
 ## Usable
+
+在 main.js 文件中引入
+
+```js
+# main.js
+import RenderTable from 'render-table'
+Vue.use(RenderTable)
+```
+
+在项目中使用 RenderTable
 
 ```html
 <RenderTable
@@ -16,51 +32,8 @@ render element table
 />
 ```
 
-## Set columns
-
 ```js
-import RenderTable from './components/RenderTable.vue'
-
-const columns = [
-  {
-    prop: 'date',
-    label: '日期',
-    render(h, ctx) {
-      const { row: { date } = {} } = ctx.props
-      return <span style='color: red'>{date}</span>
-    }
-  },
-  { prop: 'name', label: '姓名' },
-  { prop: 'address', label: '地址' }
-]
-const tableData = [
-  {
-    date: '2016-05-02',
-    name: '王小虎',
-    address: '上海市普陀区金沙江路 1518 弄'
-  },
-  {
-    date: '2016-05-04',
-    name: '王小虎',
-    address: '上海市普陀区金沙江路 1517 弄'
-  },
-  {
-    date: '2016-05-01',
-    name: '王小虎',
-    address: '上海市普陀区金沙江路 1519 弄'
-  },
-  {
-    date: '2016-05-03',
-    name: '王小虎',
-    address: '上海市普陀区金沙江路 1516 弄'
-  }
-]
-
 export default {
-  name: 'App',
-  components: {
-    RenderTable
-  },
   data() {
     return {
       columns,
@@ -75,18 +48,77 @@ export default {
   },
   created() {
     this.onSubmit()
-    this.addCctionColumn()
   },
-
   methods: {
     onSubmit() {
       this.loading = true
       setTimeout(() => {
         this.loading = false
         this.total = 100
-        this.tableData = tableData
-      }, 1000)
+        this.tableData = []
+      }, 500)
     },
+    handleChange(params) {
+      console.log('handleChange: ', params)
+      this.params = params
+      this.onSubmit()
+    }
+  }
+}
+```
+
+## Set columns
+
+```js
+const columns = [
+  {
+    prop: 'date',
+    label: '日期',
+    render(h, ctx) {
+      const { row: { date } = {} } = ctx.props
+      return <span style='color: #409eff'>{date}</span>
+    }
+  },
+  { prop: 'name', label: '姓名' },
+  { prop: 'address', label: '地址' }
+]
+```
+
+## 事件
+
+监听 Pagination 的 change 事件触发
+
+```js
+<RenderTable
+  :columns="columns"
+  :loading="loading"
+  :total="total"
+  :tableData="tableData"
+  :currentPage="params.currentPage"
+  :pageSize="params.pageSize"
+  @change="handleChange" />
+```
+
+```js
+export default {
+  methods: {
+    handleChange(params) {
+      console.log('handleChange: ', params)
+      this.params = params
+      this.onSubmit()
+    }
+  }
+}
+```
+
+## 操作
+
+```js
+export default {
+  created() {
+    this.addCctionColumn()
+  },
+  methods: {
     addCctionColumn() {
       const self = this
       this.columns.push({
@@ -104,11 +136,48 @@ export default {
     },
     handleClick(row) {
       console.log('handleClick: ', row)
+    }
+  }
+}
+```
+
+## Props
+
+```js
+// render-table.vue
+export default {
+  props: {
+    columns: {
+      type: Array,
+      default: () => []
     },
-    handleChange(params) {
-      console.log('handleChange: ', params)
-      this.params = params
-      this.onSubmit()
+    tableData: {
+      type: Array,
+      default: () => {}
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    total: {
+      type: Number,
+      default: 0
+    },
+    currentPage: {
+      type: Number,
+      default: 1
+    },
+    pageSize: {
+      type: Number,
+      default: 10
+    },
+    pageSizes: {
+      type: Array,
+      default: () => [10, 20, 30, 40, 50]
+    },
+    layout: {
+      type: String,
+      default: 'total, sizes, prev, pager, next, jumper'
     }
   }
 }
