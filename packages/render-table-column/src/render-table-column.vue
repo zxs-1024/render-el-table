@@ -8,7 +8,7 @@ export default {
       column: { render, prop }
     } = context.props
     if (typeof render !== 'function') {
-      return <div>{row[prop] || ''}</div>
+      return <div>{row[prop]}</div>
     }
     return render(createElement, context)
   }
