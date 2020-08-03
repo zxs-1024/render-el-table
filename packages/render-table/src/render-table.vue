@@ -54,7 +54,15 @@ export default {
           return <renderTableColumn row={row} column={column} />
         }
       }
-      return <elTableColumn {...{ scopedSlots }} prop={column.prop} label={column.label} key={column.key} />
+      return (
+        <elTableColumn
+          {...{ props: column, scopedSlots }}
+          label={column.label}
+          prop={column.prop}
+          prop={column.prop}
+          key={column.key}
+        />
+      )
     },
     handleSizeChange(pageSize) {
       this.$emit('change', { ...this.params, pageSize })
