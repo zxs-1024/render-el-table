@@ -1,5 +1,5 @@
 const bashCode = `# main.js
-import RenderTable from 'render-table'
+import RenderTable from 'render-el-table'
 Vue.use(RenderTable)`
 
 const columnsCode = `const columns = [
@@ -121,7 +121,7 @@ const htmlCode = `<RenderTable
   :pageSize="params.pageSize"
   @change="handleChange" />`
 
-const propsCode = `// render-table.vue
+const propsCode = `// render-el-table.vue
 export default {
   props: {
     columns: {

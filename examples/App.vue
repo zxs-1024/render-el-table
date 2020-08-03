@@ -3,7 +3,7 @@
     <div class="page-header">
       <h1>RenderTable</h1>
       <h2>基于 Element Table 的二次封装</h2>
-      <a href="https://github.com/zhanghao-zhoushan/render-table" class="btn" target="_blank">View on GitHub</a>
+      <a href="https://github.com/zhanghao-zhoushan/render-el-table" class="btn" target="_blank">View on GitHub</a>
     </div>
 
     <div class="page-content">
@@ -23,10 +23,10 @@
         @change="handleChange"
       />
 
-      <h2>安装</h2>
-      <pre v-highlightjs="'$ npm install render-table -S'"><code class="bash"></code></pre>
+      <h2>Install</h2>
+      <pre v-highlightjs="'$ npm install render-el-table -S'"><code class="bash"></code></pre>
 
-      <h2>使用</h2>
+      <h2>Usable</h2>
       <p>在 main.js 文件中引入</p>
       <pre v-highlightjs="code.bashCode"><code class="javascript"></code></pre>
 
@@ -34,19 +34,19 @@
       <pre v-highlightjs="code.htmlCode"><code class="html"></code></pre>
       <pre v-highlightjs="code.useCode"><code class="javascript"></code></pre>
 
-      <h2>选项</h2>
+      <h2>Set columns</h2>
       <p>你可以通过在 columns 配置自定义 column, 支持 JSX</p>
       <pre v-highlightjs="code.columnsCode"><code class="javascript"></code></pre>
 
-      <h2>事件</h2>
+      <h2>Event</h2>
       <p>监听 Pagination 的 change 事件触发</p>
       <pre v-highlightjs="code.htmlCode"><code class="html"></code></pre>
       <pre v-highlightjs="code.EventJavascriptCode"><code class="javascript"></code></pre>
 
-      <h1>操作</h1>
+      <h1>Action</h1>
       <pre v-highlightjs="code.actionCode"><code class="javascript"></code></pre>
 
-      <h1>Props</h1>
+      <h1>RenderTable Support Props</h1>
       <pre v-highlightjs="code.propsCode"><code class="javascript"></code></pre>
     </div>
 

@@ -1,11 +1,11 @@
-# render-table
+# render-el-table
 
 render element table
 
 ## Install
 
 ```bash
-$ npm install render-table -S
+$ npm install render-el-table -S
 ```
 
 ## Usable
@@ -14,7 +14,7 @@ $ npm install render-table -S
 
 ```js
 # main.js
-import RenderTable from 'render-table'
+import RenderTable from 'render-el-table'
 Vue.use(RenderTable)
 ```
 
@@ -69,11 +69,14 @@ export default {
 
 ## Set columns
 
+你可以通过在 columns 配置自定义 column, 支持 JSX
+
 ```js
 const columns = [
   {
     prop: 'date',
     label: '日期',
+    width: 120,
     render(h, ctx) {
       const { row: { date } = {} } = ctx.props
       return <span style='color: #409eff'>{date}</span>
@@ -84,7 +87,7 @@ const columns = [
 ]
 ```
 
-## 事件
+## Event
 
 监听 Pagination 的 change 事件触发
 
@@ -111,7 +114,7 @@ export default {
 }
 ```
 
-## 操作
+## Action
 
 ```js
 export default {
@@ -141,10 +144,10 @@ export default {
 }
 ```
 
-## Props
+## RenderTable Support Props
 
 ```js
-// render-table.vue
+// render-el-table.vue
 export default {
   props: {
     columns: {

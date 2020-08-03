@@ -1,18 +1,18 @@
 {
-  "name": "render-table",
+  "name": "render-el-table",
   "description": "基于 Element Table 的二次封装",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "author": "hao.zhang",
   "keyword": "element table jsx",
-  "main": "dist/render-table.js",
+  "main": "dist/render-el-table.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name render-table --dest lib packages/index.js",
+    "lib": "vue-cli-service build --target lib --name render-el-table --dest lib packages/index.js",
     "lint": "vue-cli-service lint"
   },
-  "homepage": "https://github.com/zhanghao-zhoushan/render-table",
+  "homepage": "https://github.com/zhanghao-zhoushan/render-el-table",
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",

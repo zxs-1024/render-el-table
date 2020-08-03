@@ -2,11 +2,12 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App.vue'
-import RenderTable from '../packages/index'
+import renderTable from '../lib/render-el-table.common'
+
 import Highlight from './highlight'
 
 Vue.use(ElementUI)
-Vue.use(RenderTable)
+Vue.use(renderTable)
 Vue.use(Highlight)
 
 Vue.config.productionTip = false
