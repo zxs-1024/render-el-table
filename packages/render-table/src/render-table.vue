@@ -77,7 +77,7 @@ export default {
     return (
       <div class='render-table'>
         <div class='render-table__content' style='margin-bottom: 20px;'>
-          <elTable data={tableData} vLoading={loading} style='width: 100%'>
+          <elTable data={tableData} vLoading={loading} {...{ props: this.$attrs }} style='width: 100%'>
             {columns.map((column) => this.renderElTableColumn(h, column))}
           </elTable>
         </div>
