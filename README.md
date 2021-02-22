@@ -13,8 +13,8 @@ $ npm install render-el-table -S
 在 main.js 文件中引入
 
 ```js
-# main.js
 import RenderTable from 'render-el-table'
+
 Vue.use(RenderTable)
 ```
 

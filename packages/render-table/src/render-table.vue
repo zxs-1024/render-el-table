@@ -49,23 +49,35 @@ export default {
 
   methods: {
     renderElTableColumn(h, column) {
-      const scopedSlots = {
+      const { children = [] } = column
+      const noSlotsTypes = ['index', 'selection']
+      const hasChildren = children && children.length
+      let scopedSlots = {
         default: ({ row }) => {
+          if (hasChildren) {
+            return children.map((column) => <renderTableColumn row={row} column={column} />)
+          }
           return <renderTableColumn row={row} column={column} />
         }
       }
+
+      if (column.type && noSlotsTypes.includes(column.type)) {
+        scopedSlots = null
+      }
+
       return (
         <elTableColumn
           {...{ props: column, scopedSlots }}
+          type={column.type}
           label={column.label}
-          prop={column.prop}
           prop={column.prop}
           key={column.key}
         />
       )
     },
+
     handleSizeChange(pageSize) {
-      this.$emit('change', { ...this.params, pageSize })
+      this.$emit('change', { ...this.params, pageSize, currentPage: 1 })
     },
     handleCurrentChange(currentPage) {
       this.$emit('change', { ...this.params, currentPage })

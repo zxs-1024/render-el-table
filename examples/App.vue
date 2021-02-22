@@ -8,9 +8,7 @@
 
     <div class="page-content">
       <h1>RenderTable</h1>
-      <p>
-        集成 Pagination、Table、 TableColumn、 Loading 组件，更快的开发 Table
-      </p>
+      <p>集成 Pagination、Table、 TableColumn、 Loading 组件，更快的开发 Table</p>
 
       <h2>Demo</h2>
       <RenderTable
@@ -51,7 +49,8 @@
     </div>
 
     <div class="page-footer">
-      RenderTable 插件由<a href="https://www.zhanghao-zhoushan.cn/" target="_blank">sailor</a>编写
+      RenderTable 插件由
+      <a href="https://www.zhanghao-zhoushan.cn/" target="_blank">sailor</a>编写
     </div>
   </div>
 </template>
@@ -61,11 +60,26 @@ import * as code from './code'
 
 const columns = [
   {
+    type: 'selection',
+    width: 55
+  },
+  {
     prop: 'date',
     label: '日期',
+    children: [
+      {
+        prop: 'date',
+        label: '日期1'
+      },
+      {
+        prop: 'date',
+        label: '日期2'
+      }
+    ],
     render(h, ctx) {
       const { row: { date } = {} } = ctx.props
-      return <span style='color: #409eff'>{date}</span>
+      date
+      return <span>date</span>
     }
   },
   { prop: 'name', label: '姓名' },
